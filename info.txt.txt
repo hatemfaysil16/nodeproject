@@ -11,3 +11,8 @@ http.createServer(function (request,response){
 }).listen(8080);
 console.log('Server running at http://127.0.0.1:8080');
 ---------------------------------
+-------------console---------------
+console.log('Server');
+console.error('sds', err );
+const name= 'hatem';
+console.warn(`my name is:${name}`);
