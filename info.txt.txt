@@ -1,6 +1,7 @@
 ----------call fiel with cmd//-------
 
 node global
+node 
 ---------------------------
 ----------------server runing------------
 
