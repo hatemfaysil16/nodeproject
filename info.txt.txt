@@ -17,3 +17,115 @@ console.log('Server');
 console.error('sds', err );
 const name= 'hatem';
 console.warn(`my name is:${name}`);
+--------------------------version----------
+npm version , npm -v ,
+npm install express , npm install expres -g 
+,npm uninstall express,npm ls.
+--------------------__dirname---------------------------
+console.log(__dirname);
+console.log(__filename);
+--------- ------------os operation--system------------
+--------- ------------Time-----------------------------
+setInterval(function(){
+    console.log('hatemfaysil');
+},1000);
+////////////////////////////////
+var count1 = 0;
+console.log(count1);
+setInterval(function(){
+    count1++;
+    console.log('hatem faysil'+count1);
+},1000)
+////////////////////////////////
+setTimeout(function(){
+    console.log('hatemfaysil');
+},5000);
+////////////////////////////////
+var recursive = function(){
+    console.log("hatem faysil");
+    setTimeout(recursive,1000);
+}
+recursive();
+////////////////////////////////
+function muhammed(){
+    console.log("Welcome node js");
+}
+var essa = setTimeout(muhammed,1000);
+var hamdeed = setInterval(muhammed,1000);
+clearTimeout(essa);
+clearInterval(hamdeed);
+////////////////////////////////
+--------- ------------Time------------
+--------- ------------errors------------
+try {
+    const x = 2;
+    const d = x+y;
+} catch (e) {
+    console.log(e);
+}
+//////////////////file//////////////////////////////
+const fs = require('fs');
+function MuhammadCallback(err,data){
+    if(err) {
+        console.error("there is an error",err);
+        return;
+    }
+    console.log(data);
+}
+fs.readFile('Desktop',MuhammadCallback);
+--------- ------------errors------------
+--------- ------------dns------------
+const dns = require('dns');
+dns.lookup('www.google.com',(err,addresses,family)=>{
+    console.log('addresses',addresses);
+    console.log('family',family);
+});
+/////////////////////////////////////////////////////////////////////////
+const dns = require('dns');
+dns.resolve4('www.google.com',(err,addresses)=>{
+    if(err) throw err;
+    console.log(`addresses:${JSON.stringify(addresses)}`);
+    addresses.forEach((a)=>{
+        dns.reverse(a,(err,hostnames)=>{
+            if(err){
+            throw err; }
+            console.log(`reserve for ${a}:${JSON.stringify(hostnames)}`)
+        });
+    });
+});
+///////////////////////////////////////////////////////////////////////
+const dns = require('dns');
+dns.lookupService('142.251.37.36',23,(err,hostname,service)=>{
+    console.log(hostname,service);
+})
+// ping
+--------- ------------dns------------
+--------- ------------start server------------
+const net = require('net');
+var server = net.createServer((socket)=>{
+    socket.end('Thanks have a nice day ! :)');
+}).on('error',(err)=>{
+    throw err;
+});
+
+server.listen(()=>{
+    address = server.address();
+    console.log('listening on port :',address);
+});
+--------- ------------end server------------
+--------- ------------start client------------
+const net = require('net');
+var client = net.connect({port:53399},()=>{
+    console.log("Connected ! :) ");
+    client.write("Hi am Client \n");
+});
+
+client.on('data',(data)=>{
+    console.log(data.toString());
+    client.end
+});
+
+client.on('end',()=>{
+    console.log("Disconnected ! :( ");
+})
+--------- ------------end client------------
