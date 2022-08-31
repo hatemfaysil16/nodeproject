@@ -13,6 +13,7 @@ io.on('connection',function(socket){
     });
 
     socket.emit('message','Chat');
+    socket.emit('hatem','faysil');
 
 });
 

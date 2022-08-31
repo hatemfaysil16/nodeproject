@@ -12,6 +12,9 @@ socket.on("connect",function() {
     setTitle("Connected");
 });
 
+socket.on("hatem",function(hatem) {
+    printMessage(hatem);
+});
 socket.on("message",function(message) {
     printMessage(message);
 });
