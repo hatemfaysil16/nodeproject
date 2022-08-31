@@ -178,4 +178,57 @@ process.argv.forEach((value,index,array)=>{
     console.log(`${index} : ${value}`);
 });
 // coment { write cmd  node .\process hatem faysil 11}
---------- ------------end process------------
+--------- ------------start readfile------------
+var fs = require('fs');
+var data = '';
+
+var rs = fs.createReadStream('input.txt');
+rs.setEncoding('utf-8');
+rs.on('data',function(chunk){
+    data +=chunk;
+});
+rs.on('end',function(){
+    console.log(data)
+});
+rs.on('error',function(err){
+    console.log(err.stack);
+});
+console.log('app finished');
+--------- ------------start writefile------------
+var fs = require('fs');
+var data = 'ahmed muhsin';
+
+var ws = fs.createWriteStream('output.txt');
+ws.write(data,'utf-8');
+ws.end();
+ws.on('finish',function(){
+    console.log('done successfully !:)')
+});
+
+ws.on('error',function(err){
+    console.log(err.stack);
+});
+console.log('app finished');
+--------- ------------start pipe------------
+var fs = require('fs');
+var rs = fs.createReadStream('input1.txt');
+var ws = fs.createWriteStream('output1.txt');
+rs.pipe(ws);
+console.log('app finished');
+--------- ------------end pipe------------
+--------- ------------start chaining------------
+// var fs = require('fs');
+// var zlib = require('zlib');
+// fs.createReadStream('input.txt')
+// .pipe(zlib.createGzip())
+// .pipe(fs.createWriteStream('input.txt.gz'));
+// console.log('app finished');
+
+////////////////////////////////////////////
+// var fs = require('fs');
+// var zlib = require('zlib');
+// fs.createReadStream('input.txt.gz')
+// .pipe(zlib.createGunzip())
+// .pipe(fs.createWriteStream('input3.txt'));
+// console.log('app Gunzip finished');
+--------- ------------end chaining------------
