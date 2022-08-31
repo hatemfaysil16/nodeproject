@@ -1,0 +1,121 @@
+-------------------start fs
+
+//Asynchronous
+var fs = require('fs');
+fs.readFile('input.txt',function(err,data){
+    if(err){
+        return console.error(err);
+    }
+    console.log('Async data read' + data.toString());
+});
+//Synchronous
+var data = fs.readFileSync('input.txt');
+console.log('sync read' + data.toString());
+console.log('App ended');
+-------------------end fs
+-------------------start fs1
+// var fs = require('fs');
+// fs.open('input.txt','r+',function(err,fd) {
+//     if(err) {
+//         console.error(err);
+//     }
+//     console.log('file opened !');
+// });
+///////////////////////////////////////////////////
+var fs = require('fs');
+console.log('file opening');
+fs.stat('input.txt',function(err,stats){
+    if(err){
+        return console.error(err);
+    }
+    console.log(stats);
+    console.log('file success');
+    console.log(stats.isFile);
+    console.log(stats.isDirectory());
+    console.log(stats.isBlockDevice());
+    console.log(stats.isFIFO());
+    console.log(stats.isCharacterDevice());
+    console.log(stats.isSocket());
+    console.log(stats.isSymbolicLink());
+})
+-------------------end fs1
+-------------------start path
+var path = require('path');
+console.log(path.normalize('C:/Users/20112/Documents/Battlefield 2'));
+console.log(path.join('C:/Users/20112/Documents','/Battlefield 2'));
+console.log(path.resolve('path.js'));
+console.log(path.extname('path.js'));
+-------------------end path
+-------------------start querystring
+// const querystring = require('querystring');
+// const someText = querystring.parse('name=hatem & lastname=faysil');
+// console.log(someText);
+//////////////////////////////////////////////////////////////
+const querystring = require('querystring');
+const someText = querystring.stringify({ name: 'hatem', 'lastname': 'faysil' });
+console.log(someText);
+-------------------end querystring
+-------------------start zlib
+// const zlib = require('zlib');
+// const fs = require('fs');
+// const gzip = zlib.createGzip();
+// const input = fs.createReadStream('input.txt');
+// const output = fs.createWriteStream('input.txt.gz');
+// input.pipe(gzip).pipe(output)
+// console.log('done comp');
+//////////////////////////////////////////////////
+const zlib = require('zlib');
+const fs = require('fs');
+const gzip = zlib.createUnzip();
+const input = fs.createReadStream('input.txt.gz');
+const output = fs.createWriteStream('input2.txt');
+input.pipe(gzip).pipe(output)
+console.log('done comp');
+-------------------end zlib
+-------------------start assert
+var assert = require('assert');
+
+function result(a,b,c,d){
+    return a+b+c+d;
+}
+
+var expected = result(1,1,1,1)
+assert(expected===4, "sum for 4 elements");
+-------------------end assert
+-------------------start v8
+const v8 = require('v8');
+console.log(v8.getHeapStatistics());
+console.log(v8.getHeapSpaceStatistics());
+-------------------end v8
+-------------------start block
+/////////////////////////block////////////////////////
+// const fs = require('fs');
+// var data = fs.readFileSync('input.txt');
+// console.log(data.toString());
+// console.log('App done');
+/////////////////////////un block////////////////////////
+const fs = require('fs');
+fs.readFile('input.txt',function(err,data){
+    if(err){
+        return console.error(err);
+    }
+    console.log(data.toString());
+});
+console.log('App done');
+-------------------end block
+-------------------start event
+var event = require('events');
+
+var eventEmitter = new event.EventEmitter();
+var connectHandle = function connected() {
+    console.log('event connected successfully');
+    eventEmitter.emit('event connected successfully');
+}
+
+    eventEmitter.on('connection',connectHandle);
+    eventEmitter.on('datareceived',function(){
+        console.log('data received');
+    })
+    eventEmitter.emit('connection');
+    console.log('App finished');
+-------------------end event
