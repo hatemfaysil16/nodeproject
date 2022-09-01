@@ -1,0 +1,7 @@
+//termainal
+1-mysql -u root -p
+2-show databases 
+3-;
+4-use databases
+5-show tables
+6-DESC tables
