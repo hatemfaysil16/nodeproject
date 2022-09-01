@@ -3,6 +3,7 @@ var app = express();
 
 app.get('/',function(req,res){
     res.send('Muhammed Essa');
+    res.param(name='Muhammed');
 });
 
 var server = app.listen(8000,function(){
