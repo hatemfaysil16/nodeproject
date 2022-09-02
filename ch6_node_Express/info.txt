@@ -5,3 +5,4 @@
 5-npm install cookie-parser --save
 6-npm install express-scaffold
 7-DEBUG=sca:* npm start
+8-http://expressjs.com/en/starter/generator.html
