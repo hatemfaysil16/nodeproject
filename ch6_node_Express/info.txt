@@ -2,3 +2,5 @@
 2-npm install body-parser --save
 3- npm install cookie-parser --save
 4-  npm install multer --save
+5-npm install cookie-parser --save
+6-npm install express-scaffold
