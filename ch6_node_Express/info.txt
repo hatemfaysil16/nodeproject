@@ -4,3 +4,4 @@
 4-  npm install multer --save
 5-npm install cookie-parser --save
 6-npm install express-scaffold
+7-DEBUG=sca:* npm start
