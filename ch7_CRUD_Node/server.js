@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 const BodyParser = require('body-parser');
 const path = require("path")
 const pathRoute ='./server/routes/router'
@@ -27,3 +27,4 @@ app.use("/js",express.static(path.resolve(__dirname,"assets/js")))
 //load routers
 app.use('/', require(pathRoute))
 app.listen(PORT,()=>{console.log(`Server is running on http://127.168.0.0:${PORT}`)});
+
